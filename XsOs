@@ -1,0 +1,62 @@
+//side project- work in progress
+import javax.swing.*;
+public class XsOs {
+
+	public static void main(String[] args) {
+		int[] grid = new int[8];
+		int player1, player2;
+		boolean gameover = false;
+		boolean turnover = false;
+		while(gameover == false){
+			while(turnover == false){
+			player1 = Integer.parseInt(JOptionPane.showInputDialog(null,"Player 1 make a move using a number between 1-9."));
+			player1 -= 1;
+			
+			turnover = false;
+			if(grid[player1] == 0){
+				grid[player1] = 1;
+				turnover = true;}
+			else if(grid[player1] == 1)
+				JOptionPane.showMessageDialog(null, "You have already gone here, cop on!");
+			else
+				JOptionPane.showMessageDialog(null, "Player 2 has already gone here!");
+			if((grid[0] == 1 && grid[1] == 1 && grid[2] == 1) ||
+				(grid[0] == 1 && grid[4] == 1 && grid[8] == 1)  ||
+				(grid[0] == 1 && grid[3] == 1 && grid[6] == 1)  ||
+				(grid[1] == 1 && grid[4] == 1 && grid[7] == 1)  ||
+				(grid[2] == 1 && grid[4] == 1 && grid[6] == 1)  ||
+				(grid[2] == 1 && grid[5] == 1 && grid[8] == 1)  ||
+				(grid[3] == 1 && grid[4] == 1 && grid[5] == 1)  ||
+				(grid[6] == 1 && grid[7] == 1 && grid[8] == 1)){
+					JOptionPane.showMessageDialog(null, "Player 1 is the winner!");
+					gameover = true;
+				}
+			
+			}
+			if(gameover == false){
+				while(turnover = false){
+					turnover = false;
+			player2 = Integer.parseInt(JOptionPane.showInputDialog(null,"Player 2 make a move using a number between 1-9."));
+			player2 -= 1;
+			if(grid[player2] == 0){
+				grid[player2] = 2;
+				turnover = true;}
+			else if(grid[player2] == 2)
+				JOptionPane.showMessageDialog(null, "You have already gone here, cop on!");
+			else
+				JOptionPane.showMessageDialog(null, "Player 1 has already gone here!");
+			if((grid[0] == 2 && grid[1] == 2 && grid[2] == 2) ||
+				(grid[0] == 2 && grid[4] == 2 && grid[8] == 2)  ||
+				(grid[0] == 2 && grid[3] == 2 && grid[6] == 2)  ||
+				(grid[1] == 2 && grid[4] == 2 && grid[7] == 2)  ||
+				(grid[2] == 2 && grid[4] == 2 && grid[6] == 2)  ||
+				(grid[2] == 2 && grid[5] == 2 && grid[8] == 2)  ||
+				(grid[3] == 2 && grid[4] == 2 && grid[5] == 2)  ||
+				(grid[6] == 2 && grid[7] == 2 && grid[8] == 2)){
+					JOptionPane.showMessageDialog(null, "Player 1 is the winner!");
+					gameover = true;
+				}}}
+		}
+	}
+
+}
